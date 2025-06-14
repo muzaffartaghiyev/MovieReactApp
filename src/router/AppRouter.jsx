@@ -4,11 +4,16 @@ import Login from "../pages/Login"
 import Register from "../pages/Register"
 import Main from "../pages/Main"
 import Layout from "../pages/Layout"
+import AuthProvider from "../context/AuthProvider";
 
 const router = createBrowserRouter([
     {
         path:'/',
-        element:<Layout/>,
+        element:(
+      <AuthProvider>
+        <Layout />
+      </AuthProvider>
+    ),
         children:[
             {
                 index:true,

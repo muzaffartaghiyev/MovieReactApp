@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
-  const navigate  = useNavigate()
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -14,11 +13,9 @@ const Login = () => {
 
   const handleSubmit=(e)=>{
     e.preventDefault()
-
     loginUser(email,password)
-
-    navigate("/")
   }
+
 
   return (
     <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
@@ -56,7 +53,7 @@ const Login = () => {
             type="button"
             className="btn-danger flex justify-between text-center "
 
-            // onClick={()=>googleGiris()}
+            onClick={()=>googleLogin()}
           >
             Continue with Google
             <GoogleIcon color="currentColor" />

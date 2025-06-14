@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 
 const Register = () => {
-  const navigate  = useNavigate()
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
@@ -15,13 +14,9 @@ const Register = () => {
   const {createUser,googleLogin}=useContext(AuthContext)
 
   const handleSubmit=(e)=>{
-
     e.preventDefault()
     const displayName=`${firstName} ${lastName}`
     createUser(email,password,displayName)
-    
-    navigate('/login')
-
   }
 
   return (
@@ -85,7 +80,7 @@ const Register = () => {
             type="button"
             className="btn-danger flex justify-between text-center "
 
-            // onClick={()=>googleGiris()}
+            onClick={()=>googleLogin()}
           >
             Continue with Google
             <GoogleIcon color="currentColor" />
