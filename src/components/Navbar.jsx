@@ -14,7 +14,7 @@ import { AuthContext } from "../context/AuthProvider";
 
 const Navbar = () => {
 
-  // const {logout,currentUser}=useContext(AuthContext)
+  const {logout}=useContext(AuthContext)
 
   return (
     <>
@@ -71,7 +71,7 @@ const Navbar = () => {
                   <MenuItem>
                     <span
                       className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 cursor-pointer"
-                      // onClick={()=>logout()}
+                      onClick={()=>logout()}
                     >
                       Log out
                     </span>
