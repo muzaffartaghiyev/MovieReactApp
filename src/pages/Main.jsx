@@ -1,8 +1,18 @@
-import React from 'react'
+
+
+import Navbar from "../components/Navbar"
+
+
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <div className="bg-[#23242a] min-h-screen">
+      <Navbar/>
+      
+      Main
+      
+      
+    </div>
   )
 }
 
