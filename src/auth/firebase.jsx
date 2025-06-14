@@ -11,12 +11,14 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA8KlGZbJjn8o365LP31uX6JdibbLCMmuM",
-  authDomain: "moviereactapp-134ee.firebaseapp.com",
-  projectId: "moviereactapp-134ee",
-  storageBucket: "moviereactapp-134ee.firebasestorage.app",
-  messagingSenderId: "1020703556500",
-  appId: "1:1020703556500:web:05663c191e04d7fe940581",
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
+  measurementId: "G-RJDDTLNSB4"
+
 };
 
 // Initialize Firebase

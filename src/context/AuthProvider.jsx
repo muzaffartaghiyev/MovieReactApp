@@ -1,4 +1,4 @@
-import {createContext} from "react";
+import {createContext, useState} from "react";
 
 import {
   createUserWithEmailAndPassword,
@@ -14,6 +14,7 @@ import { auth } from "../auth/firebase";
 
 import { toastError, toastSuccess, toastWarn } from "../helpers/ToastNotify";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
 export const AuthContext = createContext();
@@ -21,7 +22,12 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
 
   const navigate  = useNavigate()
+  const [currentUser,setCurrentUser] = useState()
 
+  useEffect(()=>{
+      userStateChange()
+  },[])
+  
   // Register
   const createUser = async (email, password, displayName) => {
     try{
@@ -29,6 +35,11 @@ const AuthProvider = ({ children }) => {
 
       toastSuccess("Registration is successful, Now you can login");
       navigate('/login')
+
+      updateProfile(auth.currentUser,{
+        displayName:displayName,
+      })
+
     }
     catch(error){
       toastError(`Registration Failed.Error: ${error}`)
@@ -75,10 +86,20 @@ const AuthProvider = ({ children }) => {
     } 
   }
 
+  const userStateChange = ()=>{
+    onAuthStateChanged(auth,(user)=>{
+      if(user){
+        setCurrentUser({email:user.email,displayName:user.displayName,photoURL:user.photoURL})
+      }else{
+        setCurrentUser(false)
+      }
+    })
+  }
+
 
   return (
     <AuthContext.Provider
-      value={{createUser,loginUser,googleLogin,logout}}
+      value={{createUser,loginUser,googleLogin,logout,currentUser}}
     >
       {children}
     </AuthContext.Provider>
