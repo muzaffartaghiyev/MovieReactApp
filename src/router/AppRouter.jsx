@@ -4,10 +4,6 @@ import Login from "../pages/Login"
 import Register from "../pages/Register"
 import Main from "../pages/Main"
 import Layout from "../pages/Layout"
-// import Layout from "../pages/Layout"
-
-
-
 
 const router = createBrowserRouter([
     {

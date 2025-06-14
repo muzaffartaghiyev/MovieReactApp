@@ -20,21 +20,25 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
 
-  const navigate  = useNavigate()
-
+  
+  // Register
   const createUser = async (email, password, displayName) => {
     await createUserWithEmailAndPassword(auth, email, password);
 
-    toastSuccess("Registration is successful");
-
-    navigate("/")
-
+    toastSuccess("Registration is successful, Now you can login");
   };
+
+  // Login
+  const loginUser = async (email, password) =>{
+    await signInWithEmailAndPassword(auth, email, password)
+
+    toastSuccess("You logged in Successfully")
+  }
 
 
   return (
     <AuthContext.Provider
-      value={{createUser}}
+      value={{createUser,loginUser}}
     >
       {children}
     </AuthContext.Provider>

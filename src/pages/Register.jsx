@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
 import { AuthContext } from "../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 
 const Register = () => {
+  const navigate  = useNavigate()
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
@@ -14,9 +16,11 @@ const Register = () => {
 
   const handleSubmit=(e)=>{
 
-  e.preventDefault()
-  const displayName=`${firstName} ${lastName}`
-  createUser(email,password,displayName)
+    e.preventDefault()
+    const displayName=`${firstName} ${lastName}`
+    createUser(email,password,displayName)
+    
+    navigate('/login')
 
   }
 
