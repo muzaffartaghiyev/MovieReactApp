@@ -14,12 +14,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA8KlGZbJjn8o365LP31uX6JdibbLCMmuM",
-  authDomain: "moviereactapp-134ee.firebaseapp.com",
-  projectId: "moviereactapp-134ee",
-  storageBucket: "moviereactapp-134ee.firebasestorage.app",
-  messagingSenderId: "1020703556500",
-  appId: "1:1020703556500:web:05663c191e04d7fe940581",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
   measurementId: "G-RJDDTLNSB4"
 };
 
