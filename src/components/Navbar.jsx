@@ -5,23 +5,22 @@ import {
   MenuItem,
   MenuItems,
 } from "@headlessui/react";
- import { Link } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 
 import avatar from "../assets/icons/avatar.png";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
 
+const Navbar = () => {
 
-export default function Navbar() {
-
-// const {logout,currentUser}=useContext(AuthContext)
-
+  // const {logout,currentUser}=useContext(AuthContext)
 
   return (
     <>
-      <Disclosure
+    <Disclosure
         as="nav"
-        className="bg-neutral-100 bg-gray-900 text-white fixed top-0 w-full z-20 "
+        className="bg-gray-900 text-white fixed top-0 w-full z-20 "
       >
         <div className="mx-auto  px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
@@ -41,7 +40,6 @@ export default function Navbar() {
                     <img
                       alt=""
                       // src={currentUser?.photoURL || avatar }
-                      src={avatar}
                       className="h-8 w-8 rounded-full"
                       referrerPolicy="no-referrer"
                     />
@@ -70,14 +68,14 @@ export default function Navbar() {
                     </MenuItem>
                   </>
 
-                  {/* <MenuItem>
+                  <MenuItem>
                     <span
                       className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 cursor-pointer"
-                      onClick={()=>cikis()}
+                      // onClick={()=>logout()}
                     >
                       Log out
                     </span>
-                  </MenuItem> */}
+                  </MenuItem>
                 </MenuItems>
               </Menu>
             </div>
@@ -86,5 +84,7 @@ export default function Navbar() {
       </Disclosure>
       <div className="h-16"></div>
     </>
-  );
+  )
 }
+
+export default Navbar

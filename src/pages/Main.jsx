@@ -1,17 +1,9 @@
-
-
-import Navbar from "../components/Navbar"
-
-
+import React from 'react'
 
 const Main = () => {
   return (
-    <div className="bg-[#23242a] min-h-screen">
-      <Navbar/>
-      
-      Main
-      
-      
+    <div>
+      main
     </div>
   )
 }

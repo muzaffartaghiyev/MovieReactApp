@@ -1,25 +1,44 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import {createContext} from "react";
 
-import {createContext} from 'react'
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
 
-import {toastSuccess} from "../helpers/ToastNotify"
+import { auth } from "../auth/firebase";
 
-export const AuthContext = createContext()
+import { toastError, toastSuccess } from "../helpers/ToastNotify";
+import { useNavigate } from "react-router-dom";
 
-const AuthProvider = ({children}) => {
 
-  const createUser = async(email,password,displayName)=>{
-    await createUserWithEmailAndPassword(auth, email, password)
+export const AuthContext = createContext();
 
-    toastSuccess("success")
+const AuthProvider = ({ children }) => {
 
-  }
+  const navigate  = useNavigate()
+
+  const createUser = async (email, password, displayName) => {
+    await createUserWithEmailAndPassword(auth, email, password);
+
+    toastSuccess("Registration is successful");
+
+    navigate("/")
+
+  };
+
 
   return (
-    <AuthContext.Provider value={{createUser}}>
+    <AuthContext.Provider
+      value={{createUser}}
+    >
       {children}
     </AuthContext.Provider>
-  )
-}
+  );
+};
 
-export default AuthProvider
+export default AuthProvider;
